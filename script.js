@@ -81,3 +81,5 @@ if (referrerDomain) {
 } else {
     console.log("No referrer could be determined.");
 }
+
+getReferrerDomain();
