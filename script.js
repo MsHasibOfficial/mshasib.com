@@ -55,3 +55,29 @@ hiremeBtn.onclick = function () {
 letchatBtn.onclick = function () {
     window.open( 'https://wa.me/+8801317532453/?text=Hey%20There%21' , '_blank',);
   };
+
+
+// Function to get the referrer domain
+function getReferrerDomain() {
+    const referrer = document.referrer; // Get the referrer URL
+    if (referrer) {
+        try {
+            const referrerURL = new URL(referrer);
+            return referrerURL.hostname; // Extract the domain name
+        } catch (error) {
+            console.error("Invalid referrer :", error);
+            return null;
+        }
+    } else {
+        console.log("No referrer available.");
+        return null;
+    }
+}
+
+// Display the referrer domain in the console
+const referrerDomain = getReferrerDomain();
+if (referrerDomain) {
+    console.log("Referrer By:", referrerDomain);
+} else {
+    console.log("No referrer could be determined.");
+}
