@@ -1,6 +1,9 @@
 function FindProxyForURL(url, host) {
-    if (dnsDomainIs(host, "mshasib.com") || dnsDomainIs(host, "google.com") || dnsDomainIs(host, "newconfig.nocaptchaai.com") || dnsDomainIs(host, "nocaptchaai.com") || dnsDomainIs(host, "telegram.org")) {
-        return "DIRECT";
+    // Domains to route through the public network
+    if (dnsDomainIs(host, "whoer.net") || dnsDomainIs(host, "mshasib.com")) {
+        return "DIRECT"; // Use the public network without a proxy
     }
-    return "SOCKS5 x406.fxdx.in:15552";
+
+    // All other domains route to the private network
+    return "PROXY 10.0.0.1:8080"; // Replace 10.0.0.1:8080 with your private network's proxy
 }
